@@ -4,13 +4,26 @@ name: Title
 
 import { PrintFriendlyTitle } from "../src/index";
 import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
 
 # Print Friendly Title
 
-## Simple
+## Style
 
 <Playground>
-    <PrintFriendlyTitle>
+    <PrintFriendlyTitle
+        fontSize={undefined}
+    >
         Hello World
     </PrintFriendlyTitle>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<PrintFriendlyTitle>
+            Hello World
+        </PrintFriendlyTitle>),
+    )}>Print</button>
 </Playground>
