@@ -1,0 +1,32 @@
+---
+menu: Helper
+name: Title
+---
+
+import { PrintFriendlyPageBreak } from "../../src/index";
+import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
+
+# Print Friendly Page Break
+
+## Style
+
+<Playground>
+    <div>
+        First Page
+        <PrintFriendlyPageBreak />
+        Second Page
+    </div>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<div>
+            First Page
+            <PrintFriendlyPageBreak />
+            Second Page
+        </div>),
+    )}>Print</button>
+</Playground>
