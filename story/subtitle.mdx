@@ -1,0 +1,27 @@
+---
+name: Subtitle
+---
+
+import { PrintFriendlySubtitle } from "../src/index";
+import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
+
+# Print Friendly Subtitle
+
+## Style
+
+<Playground>
+    <PrintFriendlySubtitle>
+        Hello World
+    </PrintFriendlySubtitle>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<PrintFriendlySubtitle>
+            Hello World
+        </PrintFriendlySubtitle>),
+    )}>Print</button>
+</Playground>

@@ -15,13 +15,16 @@ export type PrintFriendlyTheme = {
     };
     readonly fontSize: {
         readonly title: string;
+        readonly subtitle: string;
         readonly label: string;
     };
     readonly borderWidth: {
         readonly title: string;
+        readonly subtitle: string;
     };
     readonly borderPadding: {
         readonly title: string;
+        readonly subtitle: string;
     };
 };
 
@@ -29,23 +32,30 @@ export type ThemeProps = {
     readonly theme: PrintFriendlyTheme;
 };
 
-const getDefaultTheme = (): PrintFriendlyTheme => ({
+const getDefaultTheme = (): PrintFriendlyTheme => {
 
-    color: {
-        main: NAVY,
-        label: GRAY,
-    },
-    fontSize: {
-        title: '45px',
-        label: '15px',
-    },
-    borderWidth: {
-        title: '8px',
-    },
-    borderPadding: {
-        title: '15px',
-    },
-});
+    const titleBorderWidth: string = '8px';
+    return {
+
+        color: {
+            main: NAVY,
+            label: GRAY,
+        },
+        fontSize: {
+            title: '45px',
+            subtitle: '32px',
+            label: '15px',
+        },
+        borderWidth: {
+            title: titleBorderWidth,
+            subtitle: titleBorderWidth,
+        },
+        borderPadding: {
+            title: '15px',
+            subtitle: '12px',
+        },
+    };
+};
 
 const PrintFriendlyThemeContext: React.Context<PrintFriendlyTheme> = React.createContext<PrintFriendlyTheme>(getDefaultTheme());
 
