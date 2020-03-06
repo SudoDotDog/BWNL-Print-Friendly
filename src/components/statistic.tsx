@@ -12,8 +12,8 @@ export type PrintFriendlyStatisticProps = {
 
     readonly label: string;
 
-    readonly prefix: string;
-    readonly postfix: string;
+    readonly prefix?: string;
+    readonly postfix?: string;
 };
 
 type PrintFriendlyStatisticWithThemeProps = PrintFriendlyStatisticProps & ThemeProps;
@@ -32,21 +32,38 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
                 fontWeight: 'bold',
             }}
         >
-            <span
+            {this._renderPrefix()}
+            <span>{this.props.children}</span>
+            {this._renderPostfix()}
+        </PrintFriendlyDescription>);
+    }
+
+    private _renderPrefix() {
+
+        if (this.props.prefix) {
+            return (<span
                 style={{
                     paddingRight: '5px',
                     fontWeight: 'normal',
                 }}
-            >{this.props.prefix}</span>
-            <span>{this.props.children}</span>
-            <span
+            >{this.props.prefix}</span>);
+        }
+        return null;
+    }
+
+    private _renderPostfix() {
+
+        const theme: PrintFriendlyTheme = this.props.theme;
+        if (this.props.postfix) {
+            return (<span
                 style={{
                     fontSize: theme.fontSize.context,
                     paddingLeft: '5px',
                     fontWeight: 'normal',
                 }}
-            >{this.props.postfix}</span>
-        </PrintFriendlyDescription>);
+            >{this.props.postfix}</span>);
+        }
+        return null;
     }
 }
 
