@@ -11,6 +11,9 @@ import { PrintFriendlyDescription } from "./description";
 export type PrintFriendlyStatisticProps = {
 
     readonly label: string;
+    readonly value: string | number | undefined | null;
+
+    readonly emptyPolyfill?: string | number;
 
     readonly prefix?: string;
     readonly postfix?: string;
@@ -32,10 +35,24 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
                 fontWeight: 'bold',
             }}
         >
-            {this._renderPrefix()}
-            <span>{this.props.children}</span>
-            {this._renderPostfix()}
+            {this._renderContent()}
         </PrintFriendlyDescription>);
+    }
+
+    private _renderContent() {
+
+        const polyfill: string | number = this.props.emptyPolyfill ? this.props.emptyPolyfill : 'N/A';
+
+        if (typeof this.props.value === 'undefined'
+            || this.props.value === null) {
+            return (<span>{polyfill}</span>);
+        }
+
+        return (<React.Fragment>
+            {this._renderPrefix()}
+            <span>{this.props.value}</span>
+            {this._renderPostfix()}
+        </React.Fragment>);
     }
 
     private _renderPrefix() {
