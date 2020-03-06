@@ -16,6 +16,7 @@ export type PrintFriendlyTheme = {
     readonly fontSize: {
         readonly title: string;
         readonly subtitle: string;
+        readonly context: string;
         readonly label: string;
     };
     readonly borderWidth: {
@@ -35,6 +36,11 @@ export type ThemeProps = {
 const getDefaultTheme = (): PrintFriendlyTheme => {
 
     const titleBorderWidth: string = '8px';
+    const majorFontSize: string = '45px';
+    const minorFontSize: string = '32px';
+    const mainFontSize: string = '18px';
+    const labelFontSize: string = '15px';
+
     return {
 
         color: {
@@ -42,9 +48,10 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
             label: GRAY,
         },
         fontSize: {
-            title: '45px',
-            subtitle: '32px',
-            label: '15px',
+            title: majorFontSize,
+            subtitle: minorFontSize,
+            context: mainFontSize,
+            label: labelFontSize,
         },
         borderWidth: {
             title: titleBorderWidth,
