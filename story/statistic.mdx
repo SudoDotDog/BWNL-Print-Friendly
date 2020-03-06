@@ -1,0 +1,35 @@
+---
+name: Statistic
+---
+
+import { PrintFriendlyStatistic } from "../src/index";
+import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
+
+# Print Friendly Statistic
+
+## Style
+
+<Playground>
+    <PrintFriendlyStatistic
+        label="Hello"
+        prefix="$"
+        postfix="USD"
+    >
+        Value
+    </PrintFriendlyStatistic>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<PrintFriendlyStatistic
+            label="Hello"
+            prefix="$"
+            postfix="USD"
+        >
+            Value
+        </PrintFriendlyStatistic>),
+    )}>Print</button>
+</Playground>

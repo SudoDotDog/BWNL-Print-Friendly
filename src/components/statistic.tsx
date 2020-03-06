@@ -26,14 +26,26 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
 
         return (<PrintFriendlyDescription
             label={this.props.label}
+            style={{
+                color: theme.color.main,
+                fontSize: theme.fontSize.large,
+                fontWeight: 'bold',
+            }}
         >
-            <div style={{
-                fontSize: theme.fontSize.context,
-            }}>
-                {this.props.prefix}
-                <span>{this.props.children}</span>
-                {this.props.postfix}
-            </div>
+            <span
+                style={{
+                    paddingRight: '5px',
+                    fontWeight: 'normal',
+                }}
+            >{this.props.prefix}</span>
+            <span>{this.props.children}</span>
+            <span
+                style={{
+                    fontSize: theme.fontSize.context,
+                    paddingLeft: '5px',
+                    fontWeight: 'normal',
+                }}
+            >{this.props.postfix}</span>
         </PrintFriendlyDescription>);
     }
 }
