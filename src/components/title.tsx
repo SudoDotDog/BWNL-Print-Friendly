@@ -9,8 +9,6 @@ import * as React from "react";
 import { ThemeProps, withTheme } from "../theme";
 
 export type PrintFriendlyTitleProps = {
-
-    readonly fontSize?: string;
 };
 
 type PrintFriendlyTitleWithThemeProps = PrintFriendlyTitleProps & ThemeProps;
@@ -20,11 +18,13 @@ class PrintFriendlyTitleBase extends React.PureComponent<PrintFriendlyTitleWithT
     public render() {
 
         return (<div style={{
-            borderLeft: `8px solid ${NAVY}`,
+            borderLeftWidth: this.props.theme.borderWidth.title,
+            borderLeftStyle: 'solid',
+            borderLeftColor: NAVY,
             padding: '5px',
-            paddingLeft: '15px',
-            fontSize: this.props.fontSize || '45px',
-            lineHeight: this.props.fontSize || '45px',
+            paddingLeft: this.props.theme.borderPadding.title,
+            fontSize: this.props.theme.fontSize.title,
+            lineHeight: this.props.theme.fontSize.title,
             fontWeight: 'bold',
         }}>
             {this.props.children}

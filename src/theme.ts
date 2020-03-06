@@ -8,6 +8,15 @@ import * as React from "react";
 
 export type PrintFriendlyTheme = {
 
+    readonly fontSize: {
+        readonly title: string;
+    };
+    readonly borderWidth: {
+        readonly title: string;
+    };
+    readonly borderPadding: {
+        readonly title: string;
+    };
 };
 
 export type ThemeProps = {
@@ -16,6 +25,15 @@ export type ThemeProps = {
 
 const getDefaultTheme = (): PrintFriendlyTheme => ({
 
+    fontSize: {
+        title: '45px',
+    },
+    borderWidth: {
+        title: '8px',
+    },
+    borderPadding: {
+        title: '15px',
+    },
 });
 
 const PrintFriendlyThemeContext: React.Context<PrintFriendlyTheme> = React.createContext<PrintFriendlyTheme>(getDefaultTheme());
