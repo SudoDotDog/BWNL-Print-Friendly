@@ -21,7 +21,10 @@ class PrintFriendlyDescriptionBase extends React.PureComponent<PrintFriendlyDesc
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div>
-            <div>{this.props.label}</div>
+            <div style={{
+                color: theme.color.label,
+                fontSize: theme.fontSize.label,
+            }}>{this.props.label}</div>
             <div>{this.props.children}</div>
         </div>);
     }

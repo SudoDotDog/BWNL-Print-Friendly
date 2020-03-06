@@ -11,8 +11,10 @@ import { printReactElement } from "@bwnl/print";
 ## Style
 
 <Playground>
-    <PrintFriendlyDescription>
-        Hello World
+    <PrintFriendlyDescription
+        label="Hello"
+    >
+        World
     </PrintFriendlyDescription>
 </Playground>
 
@@ -20,8 +22,10 @@ import { printReactElement } from "@bwnl/print";
 
 <Playground>
     <button onClick={() => printReactElement(
-        (<PrintFriendlyDescription>
-            Hello World
-        </PrintFriendlyDescription>),
+        (<PrintFriendlyDescription
+            label="Hello"
+        >
+        World
+    </PrintFriendlyDescription>),
     )}>Print</button>
 </Playground>

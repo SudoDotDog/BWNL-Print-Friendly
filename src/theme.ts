@@ -4,16 +4,18 @@
  * @description Theme
  */
 
-import { NAVY } from "@bwnl/shiny-inline";
+import { GRAY, NAVY } from "@bwnl/shiny-inline";
 import * as React from "react";
 
 export type PrintFriendlyTheme = {
 
     readonly color: {
         readonly main: string;
+        readonly label: string;
     };
     readonly fontSize: {
         readonly title: string;
+        readonly label: string;
     };
     readonly borderWidth: {
         readonly title: string;
@@ -31,9 +33,11 @@ const getDefaultTheme = (): PrintFriendlyTheme => ({
 
     color: {
         main: NAVY,
+        label: GRAY,
     },
     fontSize: {
         title: '45px',
+        label: '15px',
     },
     borderWidth: {
         title: '8px',
