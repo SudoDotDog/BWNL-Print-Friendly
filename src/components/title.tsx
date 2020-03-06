@@ -4,9 +4,8 @@
  * @description Title
  */
 
-import { NAVY } from "@bwnl/shiny-inline";
 import * as React from "react";
-import { ThemeProps, withTheme } from "../theme";
+import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
 
 export type PrintFriendlyTitleProps = {
 };
@@ -17,14 +16,16 @@ class PrintFriendlyTitleBase extends React.PureComponent<PrintFriendlyTitleWithT
 
     public render() {
 
+        const theme: PrintFriendlyTheme = this.props.theme;
+
         return (<div style={{
-            borderLeftWidth: this.props.theme.borderWidth.title,
+            borderLeftWidth: theme.borderWidth.title,
             borderLeftStyle: 'solid',
-            borderLeftColor: NAVY,
+            borderLeftColor: theme.color.main,
             padding: '5px',
-            paddingLeft: this.props.theme.borderPadding.title,
-            fontSize: this.props.theme.fontSize.title,
-            lineHeight: this.props.theme.fontSize.title,
+            paddingLeft: theme.borderPadding.title,
+            fontSize: theme.fontSize.title,
+            lineHeight: theme.fontSize.title,
             fontWeight: 'bold',
         }}>
             {this.props.children}

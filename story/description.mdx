@@ -1,27 +1,27 @@
 ---
-name: Title
+name: Description
 ---
 
-import { PrintFriendlyTitle } from "../src/index";
+import { PrintFriendlyDescription } from "../src/index";
 import { Playground } from "docz";
 import { printReactElement } from "@bwnl/print";
 
-# Print Friendly Title
+# Print Friendly Description
 
 ## Style
 
 <Playground>
-    <PrintFriendlyTitle>
+    <PrintFriendlyDescription>
         Hello World
-    </PrintFriendlyTitle>
+    </PrintFriendlyDescription>
 </Playground>
 
 ## Print
 
 <Playground>
     <button onClick={() => printReactElement(
-        (<PrintFriendlyTitle>
+        (<PrintFriendlyDescription>
             Hello World
-        </PrintFriendlyTitle>),
+        </PrintFriendlyDescription>),
     )}>Print</button>
 </Playground>
