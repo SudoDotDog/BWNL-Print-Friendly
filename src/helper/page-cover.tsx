@@ -7,6 +7,8 @@
 import * as React from "react";
 
 export type PrintFriendlyPageCoverProps = {
+
+    readonly CSSLinks?: string[];
 };
 
 export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPageCoverProps> {
@@ -14,10 +16,23 @@ export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPag
     public render() {
 
         return (<html>
-            <head></head>
+            <head>
+                {this._renderCSSLinks()}
+            </head>
             <body>
                 {this.props.children}
             </body>
         </html>);
+    }
+
+    private _renderCSSLinks() {
+
+        const links: string[] = this.props.CSSLinks || [];
+        return links.map((link: string, index: number) => (<link
+            key={index}
+            href={link}
+            rel="stylesheet"
+            type="text/css"
+        />));
     }
 }
