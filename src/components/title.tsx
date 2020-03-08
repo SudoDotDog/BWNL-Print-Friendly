@@ -1,6 +1,6 @@
 /**
  * @author WMXPY
- * @namespace Print_Friendly
+ * @namespace Print_Friendly_Components
  * @description Title
  */
 
