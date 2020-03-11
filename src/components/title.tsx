@@ -22,7 +22,7 @@ class PrintFriendlyTitleBase extends React.PureComponent<PrintFriendlyTitleWithT
             borderLeftWidth: theme.borderWidth.title,
             borderLeftStyle: 'solid',
             borderLeftColor: theme.color.main,
-            padding: '5px',
+            padding: theme.padding.medium,
             paddingLeft: theme.borderPadding.title,
             fontSize: theme.fontSize.title,
             lineHeight: theme.fontSize.title,

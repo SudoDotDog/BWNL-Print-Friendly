@@ -15,6 +15,8 @@ export type PrintFriendlyTheme = {
     };
     readonly padding: {
         readonly small: string;
+        readonly medium: string;
+        readonly large: string;
     },
     readonly fontSize: {
         readonly title: string;
@@ -27,12 +29,15 @@ export type PrintFriendlyTheme = {
         readonly context: string;
     };
     readonly borderWidth: {
+        readonly lite: string;
         readonly title: string;
         readonly subtitle: string;
+        readonly container: string;
     };
     readonly borderPadding: {
         readonly title: string;
         readonly subtitle: string;
+        readonly container: string;
     };
 };
 
@@ -42,6 +47,8 @@ export type ThemeProps = {
 
 const getDefaultTheme = (): PrintFriendlyTheme => {
 
+    const liteBorderWidth: string = '1px';
+    const containerBorderWidth: string = '4px';
     const titleBorderWidth: string = '8px';
     const majorFontSize: string = '45px';
     const minorFontSize: string = '32px';
@@ -57,6 +64,8 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
         },
         padding: {
             small: '3px',
+            medium: '5px',
+            large: '8px',
         },
         fontSize: {
             title: majorFontSize,
@@ -69,12 +78,15 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
             context: FONT,
         },
         borderWidth: {
+            lite: liteBorderWidth,
             title: titleBorderWidth,
             subtitle: titleBorderWidth,
+            container: containerBorderWidth,
         },
         borderPadding: {
             title: '15px',
             subtitle: '12px',
+            container: '8px',
         },
     };
 };

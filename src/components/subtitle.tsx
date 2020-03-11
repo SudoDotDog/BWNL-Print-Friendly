@@ -22,7 +22,7 @@ class PrintFriendlySubtitleBase extends React.PureComponent<PrintFriendlySubtitl
             borderLeftWidth: theme.borderWidth.subtitle,
             borderLeftStyle: 'solid',
             borderLeftColor: theme.color.main,
-            padding: '5px',
+            padding: theme.padding.medium,
             paddingLeft: theme.borderPadding.subtitle,
             fontSize: theme.fontSize.subtitle,
             lineHeight: theme.fontSize.subtitle,

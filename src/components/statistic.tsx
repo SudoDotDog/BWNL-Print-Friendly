@@ -57,10 +57,11 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
 
     private _renderPrefix() {
 
+        const theme: PrintFriendlyTheme = this.props.theme;
         if (this.props.prefix) {
             return (<span
                 style={{
-                    paddingRight: '5px',
+                    paddingRight: theme.padding.medium,
                     fontWeight: 'normal',
                 }}
             >{this.props.prefix}</span>);
@@ -75,7 +76,7 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
             return (<span
                 style={{
                     fontSize: theme.fontSize.context,
-                    paddingLeft: '5px',
+                    paddingLeft: theme.padding.medium,
                     fontWeight: 'normal',
                 }}
             >{this.props.postfix}</span>);
