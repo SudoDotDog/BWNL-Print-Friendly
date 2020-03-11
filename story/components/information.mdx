@@ -1,0 +1,46 @@
+---
+menu: Component
+name: Information
+---
+
+import { PrintFriendlyInformation } from "../../src/index";
+import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
+
+# Print Friendly Information
+
+## Style
+
+<Playground>
+    <PrintFriendlyInformation
+        label="Hello"
+    >
+        World
+    </PrintFriendlyInformation>
+    <PrintFriendlyInformation
+        label="With"
+        separator=":"
+    >
+        Separator
+    </PrintFriendlyInformation>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<React.Fragment>
+            <PrintFriendlyInformation
+                label="Hello"
+            >
+                World
+            </PrintFriendlyInformation>
+            <PrintFriendlyInformation
+                label="With"
+                separator=":"
+            >
+                Separator
+            </PrintFriendlyInformation>
+        </React.Fragment>),
+    )}>Print</button>
+</Playground>

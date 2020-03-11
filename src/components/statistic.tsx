@@ -10,10 +10,10 @@ import { PrintFriendlyDescription } from "./description";
 
 export type PrintFriendlyStatisticProps = {
 
-    readonly label: string;
-    readonly value: string | number | undefined | null;
+    readonly label: React.ReactNode;
+    readonly value: string | number | undefined | React.ReactNode | null;
 
-    readonly emptyPolyfill?: string | number;
+    readonly emptyPolyfill?: string | React.ReactNode | number;
 
     readonly prefix?: string;
     readonly postfix?: string;
@@ -41,7 +41,7 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
 
     private _renderContent() {
 
-        const polyfill: string | number = this.props.emptyPolyfill ? this.props.emptyPolyfill : 'N/A';
+        const polyfill: string | React.ReactNode | number = this.props.emptyPolyfill ? this.props.emptyPolyfill : 'N/A';
 
         if (typeof this.props.value === 'undefined'
             || this.props.value === null) {

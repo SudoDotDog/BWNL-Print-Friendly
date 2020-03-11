@@ -9,9 +9,9 @@ import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
 
 export type PrintFriendlyInformationProps = {
 
-    readonly label: string;
-    readonly value: string;
+    readonly label: React.ReactNode;
 
+    readonly separator?: React.ReactNode;
     readonly style?: React.CSSProperties;
 };
 
@@ -29,11 +29,29 @@ class PrintFriendlyInformationBase extends React.PureComponent<PrintFriendlyInfo
                 fontSize: theme.fontSize.label,
             }}>
                 {this.props.label}
+                {this._renderSeparator()}
             </span>
             <span style={this.props.style}>
-                {this.props.value}
+                {this.props.children}
             </span>
         </div>);
+    }
+
+    private _renderSeparator() {
+
+        if (this.props.separator) {
+
+            if (typeof this.props.separator === 'string') {
+
+                return (<span style={{
+                    paddingRight: this.props.theme.padding.small,
+                }}>{this.props.separator}</span>);
+            }
+            return this.props.separator;
+        }
+        return (<span style={{
+            paddingRight: this.props.theme.padding.small,
+        }} />);
     }
 }
 

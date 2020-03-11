@@ -9,7 +9,7 @@ import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
 
 export type PrintFriendlyDescriptionProps = {
 
-    readonly label: string;
+    readonly label: React.ReactNode;
 
     readonly style?: React.CSSProperties;
 };

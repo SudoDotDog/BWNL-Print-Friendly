@@ -13,6 +13,9 @@ export type PrintFriendlyTheme = {
         readonly main: string;
         readonly label: string;
     };
+    readonly padding: {
+        readonly small: string;
+    },
     readonly fontSize: {
         readonly title: string;
         readonly subtitle: string;
@@ -51,6 +54,9 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
         color: {
             main: NAVY,
             label: GRAY,
+        },
+        padding: {
+            small: '3px',
         },
         fontSize: {
             title: majorFontSize,
