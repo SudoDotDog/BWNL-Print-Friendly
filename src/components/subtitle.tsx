@@ -19,10 +19,11 @@ class PrintFriendlySubtitleBase extends React.PureComponent<PrintFriendlySubtitl
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div style={{
+            color: theme.color.title,
             borderLeftWidth: theme.borderWidth.subtitle,
             borderLeftStyle: 'solid',
             borderLeftColor: theme.color.main,
-            padding: theme.padding.medium,
+            padding: theme.padding.small,
             paddingLeft: theme.borderPadding.subtitle,
             fontSize: theme.fontSize.subtitle,
             lineHeight: theme.fontSize.subtitle,

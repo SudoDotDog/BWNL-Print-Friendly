@@ -19,6 +19,7 @@ class PrintFriendlyTitleBase extends React.PureComponent<PrintFriendlyTitleWithT
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div style={{
+            color: theme.color.title,
             borderLeftWidth: theme.borderWidth.title,
             borderLeftStyle: 'solid',
             borderLeftColor: theme.color.main,
