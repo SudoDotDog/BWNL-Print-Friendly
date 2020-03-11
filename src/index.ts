@@ -4,6 +4,7 @@
  * @description Index
  */
 
+export * from "./components/container";
 export * from "./components/description";
 export * from "./components/information";
 export * from "./components/statistic";

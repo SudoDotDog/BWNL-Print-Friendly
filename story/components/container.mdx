@@ -1,0 +1,52 @@
+---
+menu: Component
+name: Container
+---
+
+import { PrintFriendlyContainer } from "../../src/index";
+import { Playground } from "docz";
+import { printReactElement } from "@bwnl/print";
+
+# Print Friendly Container
+
+## Style
+
+<Playground>
+    <PrintFriendlyContainer style={{margin: '5px'}}>
+        Hello
+    </PrintFriendlyContainer>
+    <PrintFriendlyContainer style={{margin: '5px'}}
+        border
+    >
+        With Border
+    </PrintFriendlyContainer>
+    <PrintFriendlyContainer style={{margin: '5px'}}
+        border
+        wideBorder
+    >
+        With Wide Border
+    </PrintFriendlyContainer>
+</Playground>
+
+## Print
+
+<Playground>
+    <button onClick={() => printReactElement(
+        (<React.Fragment>
+            <PrintFriendlyContainer style={{margin: '5px'}}>
+                Hello
+            </PrintFriendlyContainer>
+            <PrintFriendlyContainer style={{margin: '5px'}}
+                border
+            >
+                With Border
+            </PrintFriendlyContainer>
+            <PrintFriendlyContainer style={{margin: '5px'}}
+                border
+                wideBorder
+            >
+                With Wide Border
+            </PrintFriendlyContainer>
+        </React.Fragment>),
+    )}>Print</button>
+</Playground>

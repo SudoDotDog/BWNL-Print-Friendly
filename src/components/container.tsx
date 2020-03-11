@@ -11,6 +11,8 @@ export type PrintFriendlyContainerProps = {
 
     readonly border?: boolean;
     readonly wideBorder?: boolean;
+
+    readonly style?: React.CSSProperties;
 };
 
 type PrintFriendlyContainerWithThemeProps = PrintFriendlyContainerProps & ThemeProps;
@@ -25,6 +27,7 @@ class PrintFriendlyContainerBase extends React.PureComponent<PrintFriendlyContai
             padding: theme.padding.medium,
             ...this._borderStyle(),
             ...this._wideBorderStyle(),
+            ...this.props.style,
         }}>
             {this.props.children}
         </div>);
@@ -46,7 +49,7 @@ class PrintFriendlyContainerBase extends React.PureComponent<PrintFriendlyContai
     private _wideBorderStyle(): React.CSSProperties {
 
         const theme: PrintFriendlyTheme = this.props.theme;
-        if (this.props.border) {
+        if (this.props.wideBorder) {
             return {
                 borderLeftWidth: theme.borderWidth.container,
                 borderLeftStyle: 'solid',
