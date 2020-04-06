@@ -7,25 +7,29 @@
 
 import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
-import { PrintFriendlyPageCover } from "../../src/index";
+import { PrintFriendlyPageBreak } from "../../src/index";
 
 export default {
-    title: 'Helper/Page Cover',
-    component: PrintFriendlyPageCover,
+    title: 'Helper/Page Break',
+    component: PrintFriendlyPageBreak,
 };
 
 export const Style = () => {
 
-    return (<PrintFriendlyPageCover>
-        Hello
-    </PrintFriendlyPageCover>);
+    return (<div>
+        First Page
+        <PrintFriendlyPageBreak />
+        Second Page
+    </div>);
 };
 
 export const Print = () => {
 
     return (<button onClick={() => printReactElementAsBody(
-        (<PrintFriendlyPageCover>
-            Hello
-        </PrintFriendlyPageCover>),
+        (<div>
+            First Page
+            <PrintFriendlyPageBreak />
+            Second Page
+        </div>),
     )}>Print</button>);
 };
