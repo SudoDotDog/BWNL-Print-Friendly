@@ -5,7 +5,7 @@
  * @override Story
  */
 
-import { printReactElementAsBody } from "@bwnl/print";
+import { printReactElementAsPage } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyPageCover } from "../../src/index";
 
@@ -23,7 +23,7 @@ export const Style = () => {
 
 export const Print = () => {
 
-    return (<button onClick={() => printReactElementAsBody(
+    return (<button onClick={() => printReactElementAsPage(
         (<PrintFriendlyPageCover>
             Hello
         </PrintFriendlyPageCover>),

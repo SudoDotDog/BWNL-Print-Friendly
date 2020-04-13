@@ -8,6 +8,12 @@ import * as React from "react";
 
 export type PrintFriendlyPageCoverProps = {
 
+    readonly htmlStyle?: React.CSSProperties;
+    readonly htmlClassName?: string;
+
+    readonly bodyStyle?: React.CSSProperties;
+    readonly bodyClassName?: string;
+
     readonly CSSLinks?: string[];
     readonly scriptLinks?: string[];
 };
@@ -16,11 +22,17 @@ export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPag
 
     public render() {
 
-        return (<html>
+        return (<html
+            style={this.props.htmlStyle}
+            className={this.props.htmlClassName}
+        >
             <head>
                 {this._renderCSSLinks()}
             </head>
-            <body>
+            <body
+                style={this.props.bodyStyle}
+                className={this.props.bodyClassName}
+            >
                 {this.props.children}
             </body>
             {this._renderScriptLinks()}
