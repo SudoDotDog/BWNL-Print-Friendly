@@ -7,6 +7,7 @@
 export * from "./components/container";
 export * from "./components/description";
 export * from "./components/information";
+export * from "./components/pair-table";
 export * from "./components/statistic";
 export * from "./components/subtitle";
 export * from "./components/title";

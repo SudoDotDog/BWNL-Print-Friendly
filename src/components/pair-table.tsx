@@ -1,0 +1,62 @@
+/**
+ * @author WMXPY
+ * @namespace Print_Friendly_Components
+ * @description Pair Table
+ */
+
+import * as React from "react";
+import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
+
+export type PrintFriendlyPairTableElement = {
+
+    readonly key: string;
+    readonly value: string;
+};
+
+export type PrintFriendlyPairTableProps = {
+
+    readonly elements: PrintFriendlyPairTableElement[];
+};
+
+type PrintFriendlyPairTableWithThemeProps = PrintFriendlyPairTableProps & ThemeProps;
+
+class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTableWithThemeProps> {
+
+    public constructor(props: PrintFriendlyPairTableWithThemeProps) {
+
+        super(props);
+
+        this._renderRow = this._renderRow.bind(this);
+    }
+
+    public render() {
+
+        const theme: PrintFriendlyTheme = this.props.theme;
+
+        return (<table style={{
+            width: '100%',
+            fontSize: theme.fontSize.context,
+        }}>
+            {this.props.elements.map(this._renderRow)}
+        </table>);
+    }
+
+    private _renderRow(element: PrintFriendlyPairTableElement, index: number) {
+
+        const theme: PrintFriendlyTheme = this.props.theme;
+
+        return (<tr key={index}>
+            <td style={{
+                width: '35%',
+                textAlign: 'right',
+                fontWeight: 'bold',
+                paddingRight: theme.padding.medium,
+            }}>{element.key}</td>
+            <td style={{
+                paddingLeft: theme.padding.medium,
+            }}>{element.value}</td>
+        </tr>);
+    }
+}
+
+export const PrintFriendlyPairTable: React.ComponentType<PrintFriendlyPairTableProps> = withTheme(PrintFriendlyPairTableBase);
