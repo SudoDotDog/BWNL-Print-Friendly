@@ -16,6 +16,10 @@ export type PrintFriendlyPairTableElement = {
 export type PrintFriendlyPairTableProps = {
 
     readonly elements: PrintFriendlyPairTableElement[];
+
+    readonly keyWidth?: string;
+    readonly bold?: boolean;
+    readonly bordered?: boolean;
 };
 
 type PrintFriendlyPairTableWithThemeProps = PrintFriendlyPairTableProps & ThemeProps;
@@ -36,6 +40,7 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
         return (<table style={{
             width: '100%',
             fontSize: theme.fontSize.context,
+            borderCollapse: 'collapse',
         }}>
             {this.props.elements.map(this._renderRow)}
         </table>);
@@ -44,18 +49,48 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
     private _renderRow(element: PrintFriendlyPairTableElement, index: number) {
 
         const theme: PrintFriendlyTheme = this.props.theme;
+        const keyWidth: string = this.props.keyWidth ?? '35%';
 
-        return (<tr key={index}>
-            <td style={{
-                width: '35%',
-                textAlign: 'right',
-                fontWeight: 'bold',
-                paddingRight: theme.padding.medium,
-            }}>{element.key}</td>
-            <td style={{
-                paddingLeft: theme.padding.medium,
-            }}>{element.value}</td>
+        return (<tr
+            key={index}
+        >
+            <td
+                style={{
+                    textAlign: 'right',
+                    width: keyWidth,
+                    color: theme.color.label,
+                    paddingRight: theme.padding.medium,
+                    ...this._getBorderStyle(),
+                }}
+            >
+                {element.key}
+            </td>
+            <td
+                style={{
+                    fontWeight: this.props.bold ? 'bold' : 'normal',
+                    paddingLeft: theme.padding.medium,
+                    color: theme.color.content,
+                    ...this._getBorderStyle(),
+                }}
+            >
+                {element.value}
+            </td>
         </tr>);
+    }
+
+    private _getBorderStyle(): React.CSSProperties {
+
+        const theme: PrintFriendlyTheme = this.props.theme;
+
+        if (this.props.bordered) {
+
+            return {
+                borderWidth: theme.borderWidth.lite,
+                borderStyle: 'solid',
+                borderColor: theme.color.main,
+            };
+        }
+        return {};
     }
 }
 

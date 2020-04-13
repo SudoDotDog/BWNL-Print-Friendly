@@ -11,6 +11,7 @@ export type PrintFriendlyTheme = {
 
     readonly color: {
         readonly title: string;
+        readonly content: string;
         readonly main: string;
         readonly label: string;
     };
@@ -65,6 +66,7 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
 
         color: {
             title: BLACK,
+            content: BLACK,
             main: NAVY,
             label: DARK_GRAY,
         },

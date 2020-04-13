@@ -17,7 +17,23 @@ export default {
 export const Style = () => {
 
     return (<div>
+        <h2>Normal</h2>
         <PrintFriendlyPairTable
+            elements={[
+                {
+                    key: 'Hello',
+                    value: 'World',
+                },
+                {
+                    key: 'Hello',
+                    value: 'World',
+                },
+            ]}
+        />
+        <h2>Bordered & Bold</h2>
+        <PrintFriendlyPairTable
+            bordered
+            bold
             elements={[
                 {
                     key: 'Hello',
@@ -35,17 +51,35 @@ export const Style = () => {
 export const Print = () => {
 
     return (<button onClick={() => printReactElementAsBody(
-        (<PrintFriendlyPairTable
-            elements={[
-                {
-                    key: 'Hello',
-                    value: 'World',
-                },
-                {
-                    key: 'Hello',
-                    value: 'World',
-                },
-            ]}
-        />),
+        (<div>
+            <h2>Normal</h2>
+            <PrintFriendlyPairTable
+                elements={[
+                    {
+                        key: 'Hello',
+                        value: 'World',
+                    },
+                    {
+                        key: 'Hello',
+                        value: 'World',
+                    },
+                ]}
+            />
+            <h2>Bordered & Bold</h2>
+            <PrintFriendlyPairTable
+                bordered
+                bold
+                elements={[
+                    {
+                        key: 'Hello',
+                        value: 'World',
+                    },
+                    {
+                        key: 'Hello',
+                        value: 'World',
+                    },
+                ]}
+            />
+        </div>),
     )}>Print</button>);
 };
