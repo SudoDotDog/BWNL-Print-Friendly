@@ -14,11 +14,15 @@ export type PrintFriendlyTheme = {
         readonly main: string;
         readonly label: string;
     };
+    readonly verticalMargin: {
+        readonly small: string;
+        readonly medium: string;
+    };
     readonly padding: {
         readonly small: string;
         readonly medium: string;
         readonly large: string;
-    },
+    };
     readonly fontSize: {
         readonly title: string;
         readonly subtitle: string;
@@ -63,6 +67,10 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
             title: BLACK,
             main: NAVY,
             label: DARK_GRAY,
+        },
+        verticalMargin: {
+            small: '5px',
+            medium: '8px',
         },
         padding: {
             small: '3px',
