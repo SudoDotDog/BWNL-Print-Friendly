@@ -37,13 +37,20 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
 
         const theme: PrintFriendlyTheme = this.props.theme;
 
-        return (<table style={{
-            width: '100%',
-            fontSize: theme.fontSize.regular,
-            borderCollapse: 'collapse',
-        }}>
-            {this.props.elements.map(this._renderRow)}
-        </table>);
+        return (<div
+            style={{
+                marginTop: theme.verticalMargin.small,
+                marginBottom: theme.verticalMargin.small,
+            }}
+        >
+            <table style={{
+                width: '100%',
+                fontSize: theme.fontSize.regular,
+                borderCollapse: 'collapse',
+            }}>
+                {this.props.elements.map(this._renderRow)}
+            </table>
+        </div>);
     }
 
     private _renderRow(element: PrintFriendlyPairTableElement, index: number) {
