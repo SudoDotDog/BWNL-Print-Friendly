@@ -39,7 +39,7 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
 
         return (<table style={{
             width: '100%',
-            fontSize: theme.fontSize.context,
+            fontSize: theme.fontSize.regular,
             borderCollapse: 'collapse',
         }}>
             {this.props.elements.map(this._renderRow)}
@@ -87,7 +87,7 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
             return {
                 borderWidth: theme.borderWidth.lite,
                 borderStyle: 'solid',
-                borderColor: theme.color.main,
+                borderColor: theme.color.border,
             };
         }
         return {};

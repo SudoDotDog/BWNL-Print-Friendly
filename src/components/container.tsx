@@ -40,7 +40,7 @@ class PrintFriendlyContainerBase extends React.PureComponent<PrintFriendlyContai
             return {
                 borderWidth: theme.borderWidth.lite,
                 borderStyle: 'solid',
-                borderColor: theme.color.main,
+                borderColor: theme.color.border,
             };
         }
         return {};
@@ -53,7 +53,7 @@ class PrintFriendlyContainerBase extends React.PureComponent<PrintFriendlyContai
             return {
                 borderLeftWidth: theme.borderWidth.container,
                 borderLeftStyle: 'solid',
-                borderLeftColor: theme.color.main,
+                borderLeftColor: theme.color.border,
                 paddingLeft: theme.borderPadding.container,
             };
         }

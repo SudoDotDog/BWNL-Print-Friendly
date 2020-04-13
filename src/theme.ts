@@ -14,6 +14,7 @@ export type PrintFriendlyTheme = {
         readonly content: string;
         readonly main: string;
         readonly label: string;
+        readonly border: string;
     };
     readonly verticalMargin: {
         readonly small: string;
@@ -29,6 +30,7 @@ export type PrintFriendlyTheme = {
         readonly subtitle: string;
         readonly large: string;
         readonly context: string;
+        readonly regular: string;
         readonly label: string;
     };
     readonly fontFamily: {
@@ -60,6 +62,7 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
     const minorFontSize: string = '32px';
     const largeFontSize: string = '24px';
     const mainFontSize: string = '18px';
+    const regularFontSize: string = '16px';
     const labelFontSize: string = '15px';
 
     return {
@@ -69,6 +72,7 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
             content: BLACK,
             main: NAVY,
             label: DARK_GRAY,
+            border: DARK_GRAY,
         },
         verticalMargin: {
             small: '5px',
@@ -84,6 +88,7 @@ const getDefaultTheme = (): PrintFriendlyTheme => {
             subtitle: minorFontSize,
             large: largeFontSize,
             context: mainFontSize,
+            regular: regularFontSize,
             label: labelFontSize,
         },
         fontFamily: {
