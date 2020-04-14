@@ -12,6 +12,7 @@ export * from "./components/information";
 export * from "./components/pair-table";
 export * from "./components/statistic";
 export * from "./components/subtitle";
+export * from "./components/table";
 export * from "./components/title";
 export * from "./helper/page-break";
 export * from "./helper/page-cover";
