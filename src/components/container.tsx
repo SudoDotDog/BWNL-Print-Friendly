@@ -9,10 +9,13 @@ import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
 
 export type PrintFriendlyContainerProps = {
 
+    readonly avoidInsideBreak?: boolean;
+
     readonly border?: boolean;
     readonly wideBorder?: boolean;
 
     readonly style?: React.CSSProperties;
+    readonly className?: string;
 };
 
 type PrintFriendlyContainerWithThemeProps = PrintFriendlyContainerProps & ThemeProps;
@@ -23,12 +26,16 @@ class PrintFriendlyContainerBase extends React.PureComponent<PrintFriendlyContai
 
         const theme: PrintFriendlyTheme = this.props.theme;
 
-        return (<div style={{
-            padding: theme.padding.medium,
-            ...this._borderStyle(),
-            ...this._wideBorderStyle(),
-            ...this.props.style,
-        }}>
+        return (<div
+            style={{
+                pageBreakInside: this.props.avoidInsideBreak ? 'avoid' : 'auto',
+                padding: theme.padding.medium,
+                ...this._borderStyle(),
+                ...this._wideBorderStyle(),
+                ...this.props.style,
+            }}
+            className={this.props.className}
+        >
             {this.props.children}
         </div>);
     }

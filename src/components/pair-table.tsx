@@ -15,6 +15,12 @@ export type PrintFriendlyPairTableElement = {
 
 export type PrintFriendlyPairTableProps = {
 
+    readonly style?: React.CSSProperties;
+    readonly className?: string;
+
+    readonly tableStyle?: React.CSSProperties;
+    readonly tableClassName?: string;
+
     readonly elements: PrintFriendlyPairTableElement[];
 
     readonly keyWidth?: string;
@@ -38,16 +44,22 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div
+            className={this.props.className}
             style={{
                 marginTop: theme.verticalMargin.small,
                 marginBottom: theme.verticalMargin.small,
+                ...this.props.style,
             }}
         >
-            <table style={{
-                width: '100%',
-                fontSize: theme.fontSize.regular,
-                borderCollapse: 'collapse',
-            }}>
+            <table
+                style={{
+                    width: '100%',
+                    fontSize: theme.fontSize.regular,
+                    borderCollapse: 'collapse',
+                    ...this.props.tableStyle,
+                }}
+                className={this.props.tableClassName}
+            >
                 {this.props.elements.map(this._renderRow)}
             </table>
         </div>);

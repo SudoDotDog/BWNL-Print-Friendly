@@ -29,7 +29,7 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
 
         return (<PrintFriendlyDescription
             label={this.props.label}
-            style={{
+            contentStyle={{
                 color: theme.color.main,
                 fontSize: theme.fontSize.large,
                 fontWeight: 'bold',
