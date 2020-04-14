@@ -4,6 +4,7 @@
  * @description Index
  */
 
+export * from "./addon/footer";
 export * from "./components/container";
 export * from "./components/description";
 export * from "./components/information";
