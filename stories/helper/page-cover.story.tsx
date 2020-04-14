@@ -24,7 +24,9 @@ export const Style = () => {
 export const Print = () => {
 
     return (<button onClick={() => printReactElementAsPage(
-        (<PrintFriendlyPageCover>
+        (<PrintFriendlyPageCover
+            size="A4"
+        >
             Hello
         </PrintFriendlyPageCover>),
     )}>Print</button>);

@@ -7,6 +7,9 @@
 import { TRANSPARENT } from "@bwnl/shiny-inline";
 import * as React from "react";
 
+export type PageCoverOrientationType = 'auto' | 'landscape' | 'portrait';
+export type PageCoverSizeType = 'A0' | 'A1' | 'A2' | 'A3' | 'A4' | 'A5' | 'JIS-B5' | 'JIS-B4' | 'legal' | 'letter' | 'ledger' | 'tabloid';
+
 export type PrintFriendlyPageCoverProps = {
 
     readonly htmlStyle?: React.CSSProperties;
@@ -19,6 +22,9 @@ export type PrintFriendlyPageCoverProps = {
 
     readonly CSSLinks?: string[];
     readonly scriptLinks?: string[];
+
+    readonly orientation?: PageCoverOrientationType;
+    readonly size?: PageCoverSizeType;
 };
 
 export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPageCoverProps> {
@@ -31,6 +37,7 @@ export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPag
         >
             <head>
                 {this._renderCSSLinks()}
+                {this._renderPageStyleBlock()}
             </head>
             <body
                 style={{
@@ -79,5 +86,21 @@ export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPag
             };
         }
         return {};
+    }
+
+    private _renderPageStyleBlock(): React.ReactNode {
+
+        const size: PageCoverSizeType = this.props.size ?? 'A4';
+        const orientation: PageCoverOrientationType = this.props.orientation ?? 'auto';
+
+        const text: string = `${size} ${orientation}`;
+
+        console.log(text);
+
+        return (<style
+            dangerouslySetInnerHTML={{
+                __html: `@page {size: ${text};}`,
+            }}
+        />);
     }
 }
