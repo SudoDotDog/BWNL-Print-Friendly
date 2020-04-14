@@ -1,24 +1,22 @@
 /**
  * @author WMXPY
  * @namespace Print_Friendly_Addon
- * @description Footer
+ * @description Header
  */
 
 import * as React from "react";
 import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
 import { randomUnique } from "@sudoo/random";
 
-export type PrintFriendlyFooterProps = {
+export type PrintFriendlyHeaderProps = {
 
     readonly style?: React.CSSProperties;
     readonly className?: string;
 };
 
-type PrintFriendlyFooterWithThemeProps = PrintFriendlyFooterProps & ThemeProps;
+type PrintFriendlyHeaderWithThemeProps = PrintFriendlyHeaderProps & ThemeProps;
 
-class PrintFriendlyFooterBase extends React.PureComponent<PrintFriendlyFooterWithThemeProps> {
-
-    private readonly _id: string = randomUnique();
+class PrintFriendlyHeaderBase extends React.PureComponent<PrintFriendlyHeaderWithThemeProps> {
 
     public render() {
 
@@ -27,24 +25,25 @@ class PrintFriendlyFooterBase extends React.PureComponent<PrintFriendlyFooterWit
         return (<React.Fragment>
             <style dangerouslySetInnerHTML={{
                 __html: `
-                @page {counter-increment: page;}
-                #${this._id}:after {content: counter(page);}
+                @page { 
+                    size: auto;
+                    padding-top: 200px;
+                }
                 `,
             }}></style>
-            <footer
-                id={this._id}
+            <header
                 style={{
                     position: 'fixed',
-                    bottom: 0,
-                    right: 0,
+                    top: '-10px',
+                    left: 0,
                     ...this.props.style
                 }}
                 className={this.props.className}
             >
                 {this.props.children}
-            </footer>
+            </header>
         </React.Fragment>);
     }
 }
 
-export const PrintFriendlyFooter: React.ComponentType<PrintFriendlyFooterProps> = withTheme(PrintFriendlyFooterBase);
+export const PrintFriendlyHeader: React.ComponentType<PrintFriendlyHeaderProps> = withTheme(PrintFriendlyHeaderBase);
