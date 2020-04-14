@@ -12,6 +12,8 @@ export type PrintFriendlyFooterProps = {
 
     readonly style?: React.CSSProperties;
     readonly className?: string;
+
+    readonly pageNumber?: boolean;
 };
 
 type PrintFriendlyFooterWithThemeProps = PrintFriendlyFooterProps & ThemeProps;
@@ -25,12 +27,7 @@ class PrintFriendlyFooterBase extends React.PureComponent<PrintFriendlyFooterWit
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<React.Fragment>
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @page {counter-increment: page;}
-                #${this._id}:after {content: counter(page);}
-                `,
-            }}></style>
+            {this._renderStyle()}
             <footer
                 id={this._id}
                 style={{
@@ -44,6 +41,20 @@ class PrintFriendlyFooterBase extends React.PureComponent<PrintFriendlyFooterWit
                 {this.props.children}
             </footer>
         </React.Fragment>);
+    }
+
+    private _renderStyle() {
+
+        if (this.props.pageNumber) {
+
+            return (<style dangerouslySetInnerHTML={{
+                __html: [
+                    `@page {counter-increment: page;}`,
+                    `#${this._id}:after {content: counter(page);}`
+                ].join(''),
+            }}></style>);
+        }
+        return null;
     }
 }
 

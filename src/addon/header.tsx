@@ -6,7 +6,6 @@
 
 import * as React from "react";
 import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
-import { randomUnique } from "@sudoo/random";
 
 export type PrintFriendlyHeaderProps = {
 
@@ -22,27 +21,17 @@ class PrintFriendlyHeaderBase extends React.PureComponent<PrintFriendlyHeaderWit
 
         const theme: PrintFriendlyTheme = this.props.theme;
 
-        return (<React.Fragment>
-            <style dangerouslySetInnerHTML={{
-                __html: `
-                @page { 
-                    size: auto;
-                    padding-top: 200px;
-                }
-                `,
-            }}></style>
-            <header
-                style={{
-                    position: 'fixed',
-                    top: '-10px',
-                    left: 0,
-                    ...this.props.style
-                }}
-                className={this.props.className}
-            >
-                {this.props.children}
-            </header>
-        </React.Fragment>);
+        return (<header
+            style={{
+                position: 'fixed',
+                top: 0,
+                left: 0,
+                ...this.props.style
+            }}
+            className={this.props.className}
+        >
+            {this.props.children}
+        </header>);
     }
 }
 
