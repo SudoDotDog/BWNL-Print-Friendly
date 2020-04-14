@@ -60,7 +60,9 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
                 }}
                 className={this.props.tableClassName}
             >
-                {this.props.elements.map(this._renderRow)}
+                <tbody>
+                    {this.props.elements.map(this._renderRow)}
+                </tbody>
             </table>
         </div>);
     }
