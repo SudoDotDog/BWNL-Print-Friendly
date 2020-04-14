@@ -72,6 +72,9 @@ class PrintFriendlyPairTableBase extends React.PureComponent<PrintFriendlyPairTa
 
         return (<tr
             key={index}
+            style={{
+                pageBreakInside: 'avoid',
+            }}
         >
             <td
                 style={{

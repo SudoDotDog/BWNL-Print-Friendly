@@ -18,6 +18,8 @@ export type PrintFriendlyDescriptionProps = {
     readonly contentStyle?: React.CSSProperties;
     readonly contentClassName?: string;
 
+    readonly avoidInsideBreak?: boolean;
+
     readonly label: React.ReactNode;
 };
 
@@ -30,7 +32,10 @@ class PrintFriendlyDescriptionBase extends React.PureComponent<PrintFriendlyDesc
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div
-            style={this.props.style}
+            style={{
+                pageBreakInside: this.props.avoidInsideBreak ? 'avoid' : 'auto',
+                ...this.props.style
+            }}
             className={this.props.className}
         >
             <div

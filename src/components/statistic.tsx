@@ -6,18 +6,17 @@
 
 import * as React from "react";
 import { PrintFriendlyTheme, ThemeProps, withTheme } from "../theme";
-import { PrintFriendlyDescription } from "./description";
+import { PrintFriendlyDescription, PrintFriendlyDescriptionProps } from "./description";
 
 export type PrintFriendlyStatisticProps = {
 
-    readonly label: React.ReactNode;
     readonly value: string | number | undefined | React.ReactNode | null;
 
     readonly emptyPolyfill?: string | React.ReactNode | number;
 
     readonly prefix?: string;
     readonly postfix?: string;
-};
+} & PrintFriendlyDescriptionProps;
 
 type PrintFriendlyStatisticWithThemeProps = PrintFriendlyStatisticProps & ThemeProps;
 
@@ -29,11 +28,18 @@ class PrintFriendlyStatisticBase extends React.PureComponent<PrintFriendlyStatis
 
         return (<PrintFriendlyDescription
             label={this.props.label}
+            style={this.props.style}
+            className={this.props.className}
+            titleStyle={this.props.titleStyle}
+            titleClassName={this.props.titleClassName}
             contentStyle={{
                 color: theme.color.main,
                 fontSize: theme.fontSize.large,
                 fontWeight: 'bold',
+                ...this.props.contentStyle,
             }}
+            contentClassName={this.props.contentClassName}
+            avoidInsideBreak={this.props.avoidInsideBreak}
         >
             {this._renderContent()}
         </PrintFriendlyDescription>);
