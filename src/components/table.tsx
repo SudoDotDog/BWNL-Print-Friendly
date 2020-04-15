@@ -11,6 +11,7 @@ export type PrintFriendlyTableColumn = {
 
     readonly displayName: string;
     readonly key: string;
+    readonly render: <T extends any = any>(value: T) => React.ReactNode;
 };
 
 export type PrintFriendlyTableProps = {
@@ -88,6 +89,7 @@ class PrintFriendlyTableBase extends React.PureComponent<PrintFriendlyTableWithT
     private _renderBody() {
 
         return this.props.data.map((data: Record<string, string | number | boolean>, dataIndex: number) => {
+
             return (<tr
                 key={dataIndex}
                 style={{
@@ -102,14 +104,18 @@ class PrintFriendlyTableBase extends React.PureComponent<PrintFriendlyTableWithT
                             ...this._getCellStyle(),
                         }}
                     >
-                        {this._renderValue(data[column.key])}
+                        {this._renderValue(data[column.key], column.render)}
                     </td>);
                 })}
             </tr>);
         });
     }
 
-    private _renderValue(value: string | number | boolean): React.ReactNode {
+    private _renderValue(value: any, renderFunction?: (value: any) => React.ReactNode): React.ReactNode {
+
+        if (renderFunction) {
+            return renderFunction(value);
+        }
 
         switch (typeof value) {
             case 'string': return value;
