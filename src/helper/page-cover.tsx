@@ -95,8 +95,6 @@ export class PrintFriendlyPageCover extends React.PureComponent<PrintFriendlyPag
 
         const text: string = `${size} ${orientation}`;
 
-        console.log(text);
-
         return (<style
             dangerouslySetInnerHTML={{
                 __html: `@page {size: ${text};}`,
