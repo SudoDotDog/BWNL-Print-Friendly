@@ -11,7 +11,7 @@ export type PrintFriendlyTableColumn = {
 
     readonly displayName: string;
     readonly key: string;
-    readonly render: <T extends any = any>(value: T) => React.ReactNode;
+    readonly render?: <T extends any = any>(value: T) => React.ReactNode;
 };
 
 export type PrintFriendlyTableProps = {
@@ -66,14 +66,14 @@ class PrintFriendlyTableBase extends React.PureComponent<PrintFriendlyTableWithT
     private _renderHeader() {
 
         const theme: PrintFriendlyTheme = this.props.theme;
-        return <tr
+        return (<tr
             style={{
                 fontSize: theme.fontSize.context,
                 pageBreakInside: 'avoid',
             }}
         >
             {this.props.columns.map((column: PrintFriendlyTableColumn, index: number) => {
-                return <th
+                return (<th
                     key={index}
                     style={{
                         ...this._getBorderStyle(),
@@ -81,9 +81,9 @@ class PrintFriendlyTableBase extends React.PureComponent<PrintFriendlyTableWithT
                     }}
                 >
                     {column.displayName}
-                </th>
+                </th>);
             })}
-        </tr>
+        </tr>);
     }
 
     private _renderBody() {
