@@ -9,6 +9,7 @@ import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyTitle } from "../../src";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Components/Title',
     component: PrintFriendlyTitle,

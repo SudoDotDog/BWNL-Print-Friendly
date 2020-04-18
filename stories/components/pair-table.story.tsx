@@ -9,6 +9,7 @@ import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyPairTable } from "../../src";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Components/Pair Table',
     component: PrintFriendlyPairTable,

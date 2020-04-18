@@ -9,6 +9,7 @@ import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyContainer } from "../../src";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Components/Container',
     component: PrintFriendlyContainer,

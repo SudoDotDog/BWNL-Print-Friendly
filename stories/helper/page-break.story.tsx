@@ -9,6 +9,7 @@ import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyPageBreak } from "../../src/index";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Helper/Page Break',
     component: PrintFriendlyPageBreak,

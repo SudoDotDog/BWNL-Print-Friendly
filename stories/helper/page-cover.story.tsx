@@ -9,6 +9,7 @@ import { printReactElementAsPage } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyPageCover } from "../../src/index";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Helper/Page Cover',
     component: PrintFriendlyPageCover,

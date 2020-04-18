@@ -9,11 +9,11 @@ import { printReactElementAsBody } from "@bwnl/print";
 import * as React from 'react';
 import { PrintFriendlyHeader, PrintFriendlyPageBreak } from "../../src";
 
+// tslint:disable-next-line: no-default-export
 export default {
     title: 'Addon/Header',
     component: PrintFriendlyHeader,
 };
-
 
 export const Style = () => {
 
