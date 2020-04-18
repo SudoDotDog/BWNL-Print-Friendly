@@ -26,6 +26,7 @@
         "strictNullChecks": true,
         "suppressImplicitAnyIndexErrors": true,
         "declaration": true,
+        "skipLibCheck": true,
         "allowSyntheticDefaultImports": true,
         "experimentalDecorators": true,
         "emitDecoratorMetadata": true
