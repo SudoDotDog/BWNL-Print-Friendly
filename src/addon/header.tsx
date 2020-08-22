@@ -19,6 +19,7 @@ class PrintFriendlyHeaderBase extends React.PureComponent<PrintFriendlyHeaderWit
 
     public render() {
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<header

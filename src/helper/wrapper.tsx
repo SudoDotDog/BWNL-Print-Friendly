@@ -21,6 +21,7 @@ class PrintFriendlyWrapperBase extends React.PureComponent<PrintFriendlyWrapperW
 
     public render() {
 
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         const theme: PrintFriendlyTheme = this.props.theme;
 
         return (<div
