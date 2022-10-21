@@ -24,7 +24,7 @@
     "@sudoo/random": "^2.2.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.19.3",
+    "@babel/core": "^7.19.6",
     "@bwnl/print": "^1.8.0",
     "@storybook/addon-actions": "^6.5.12",
     "@storybook/addon-info": "^5.3.21",
